@@ -13,7 +13,7 @@ set -euo pipefail
 REPO=$(cd "$(dirname "$0")" && pwd)
 GEO_ROOT="$REPO/vendor/geogram"
 PMP_ROOT="$REPO/vendor/pmp"
-EIGEN_INC="$REPO/vendor/eigen"
+EIGEN_INC="$REPO/vendor/Eigen"
 MWT_ROOT="$REPO/vendor/cassie-triangulation"
 LEAN_TC=/home/ernest.lee/.elan/toolchains/leanprover--lean4---v4.30.0
 LEAN_INC="$LEAN_TC/include"
