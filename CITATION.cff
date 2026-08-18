@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "contract-patch-verify: an independent Lean witness-DAG oracle for CASSIE patch detection"
+abstract: >
+  A contract is what a transport layer and an interactor compose against, and this
+  one is a second opinion rather than a shared definition: a Lean 4 witness-DAG
+  oracle that verifies CASSIE patch detection without sharing code with the
+  implementation it checks. Independence is the whole design. An oracle that
+  imports the thing it is checking agrees with it by construction, so the two are
+  held apart and only their outputs are compared.
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+    email: ernest.lee@chibifire.com
+    orcid: "https://orcid.org/0000-0003-4570-1436"
+version: 0.1.0-dev.1
+date-released: "2026-08-17"
+license: MIT
+repository-code: "https://github.com/fire/contract-patch-verify"
+keywords:
+  - lean4
+  - formal-verification
+  - property-based-testing
+  - differential-testing
+
+# What this repository is built on. Every entry is pinned in lake-manifest.json or
+# vendored under vendor/, so this file states what that pin resolves to and why it is
+# here -- a rev is a fact about a commit and not about what was wanted from it.
+references:
+
+  - type: software
+    title: "plausible: property-based testing for Lean 4"
+    authors:
+      - name: "The Lean community"
+    url: "https://github.com/leanprover-community/plausible"
+    notes: >
+      Pinned at a456461b. The randomised search under every property this oracle
+      states; a witness DAG is only worth building if something tries to falsify it.
+
+  - type: software
+    title: "plausible-witness-dag: witness DAGs over plausible"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+    url: "https://github.com/fire/plausible-witness-dag"
+    notes: >
+      Pinned at 160b94c9. The DAG structure the oracle's verdicts are carried in, so a
+      failure names the witnesses that produced it rather than only the property that broke.
+
+  - type: software
+    title: "lean-slang: Slang shader-language codegen from Lean"
+    url: "https://github.com/V-Sekai-fire/lean-slang"
+    notes: "Vendored under vendor/lean-slang, as a lake path dependency rather than a fetched rev."
+
+  - type: software
+    title: "Geogram: a programming library of geometric algorithms"
+    authors:
+      - family-names: Lévy
+        given-names: Bruno
+    url: "https://github.com/BrunoLevy/geogram"
+    notes: "Vendored under vendor/geogram, with Eigen and the CASSIE triangulation and curve-RDP sources beside it."
